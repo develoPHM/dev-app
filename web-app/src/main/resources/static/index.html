@@ -9,5 +9,28 @@
 </head>
 <body>
 <h1>홈</h1>
+<h1>쿠버네티스 HPA Test</h1>
+<button onclick="start()">CPU 부하시작</button>
+<button onclick="stop()">중지</button>
+
+<script>
+    let intervalId = null;
+
+    function start() {
+        if (intervalId !== null) return; // 중복 방지
+
+        intervalId = setInterval(() => {
+            fetch('/HpaRun')
+                .then(res => res.text())
+                .catch(console.error);
+        }, 100);
+    }
+
+    function stop() {
+        clearInterval(intervalId);
+        intervalId = null;
+        console.log("요청 중지됨");
+    }
+</script>
 </body>
 </html>
