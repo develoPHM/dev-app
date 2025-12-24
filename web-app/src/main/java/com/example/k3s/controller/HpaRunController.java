@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HpaRunController {
     @GetMapping("/HpaRun")
     public String hpaRun() {
-        long end = System.currentTimeMillis() + 3000;
+        long end = System.currentTimeMillis() + 5000;
 
         double x = 0.0001;
         while (System.currentTimeMillis() < end) {
