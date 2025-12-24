@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class HpaRunController {
     @GetMapping("/HpaRun")
     public String hpaRun() {
-        System.out.println("HpaRun START");
+        long end = System.currentTimeMillis() + 3000;
 
-        double x = Math.random();
-        for (int i = 0; i < 1_000_000; i++) {
-            x = Math.sqrt(x);
+        double x = 0.0001;
+        while (System.currentTimeMillis() < end) {
+            x = Math.sqrt(x + Math.random());
         }
 
-        System.out.println("HpaRun END");
         return "HPA RUN OK";
     }
 
