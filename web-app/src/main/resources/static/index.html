@@ -12,6 +12,7 @@
 <h1>쿠버네티스 HPA Test</h1>
 <button onclick="start()">CPU 부하시작</button>
 <button onclick="stop()">중지</button>
+<button onclick="ping()">핑퐁</button>
 
 <script>
     let intervalId = null;
@@ -24,6 +25,12 @@
                 .then(res => res.text())
                 .catch(console.error);
         }, 100);
+    }
+
+    function ping() {
+        fetch('/HpaRun')
+            .then(res => console.log(res))
+            .catch(console.error);
     }
 
     function stop() {
